@@ -4,8 +4,10 @@ import { useParams } from "react-router-dom";
 export default function Country() {
   const { id } = useParams();
   const [numbs, setNumbs] = useState([]);
+  
   useEffect(() => {
     //Runs only on the first render
+    document.title=`${id.toUpperCase()}`
     axios
       .get("http://localhost:5000/api/allNumbers")
       .then((response) => {

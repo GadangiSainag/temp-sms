@@ -42,16 +42,17 @@ export default function Home() {
 
   return (
     <div>
-      hello
+      Country list
       
       {/* <img src="https://flagsapi.com/"BR"/flat/64.png"></img> */}
       {countries.map((country, index) => {
         return (
 
-        <a key={index} href={`/en/${country}`}> {country}</a>
+        <a key={index} 
+        href={`/en/${country}`}
+        className="capitalize block"> {country}</a>
         )
       })}
-    <h1 className="capitalize"> hi-lo</h1>
     </div>
   );
 }

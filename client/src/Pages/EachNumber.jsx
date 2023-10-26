@@ -10,6 +10,7 @@ export default function EachNumber(){
 
     useEffect(() => {
         //Runs only on the first render
+        document.title = `+${number} ${id.toUpperCase()}`
         axios
           .get(`http://localhost:5000/api/messages/${number}`)
           .then((response) => {
