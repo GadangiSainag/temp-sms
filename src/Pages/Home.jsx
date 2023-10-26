@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -5,8 +6,9 @@ export default function Home() {
   const axiosConfig = {
     headers: {
       "content-Type": "application/json",
-      'Accept': "/"
-    },
+      'Accept': "*/*",
+      'Origin' : 'https://receiveasmsonline.com'
+        },
     credentials: "same-origin",
   };
   axios.defaults.withCredentials = true;
@@ -15,7 +17,7 @@ export default function Home() {
     //Runs only on the first render
     axios
       .get(
-        "https://receiveasmsonline.com/page-data/india/page-data.json",axiosConfig)
+        "https://receiveasmsonline.com/page-data/india/page-data.json")
       .then((response) => {
         console.log(response.data);
       })
@@ -23,7 +25,7 @@ export default function Home() {
         console.log(err);
       });
   }, []);
-  
+
   return <div>This is home .</div>;
 }
 
