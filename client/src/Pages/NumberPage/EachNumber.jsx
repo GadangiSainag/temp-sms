@@ -10,7 +10,7 @@ export default function EachNumber(){
 
     useEffect(() => {
         //Runs only on the first render
-        document.title = `+${number} ${id.toUpperCase()}`
+        document.title = `${id.toUpperCase()} +${number}`
         axios
           .get(`http://localhost:5000/api/messages/${number}`)
           .then((response) => {
@@ -35,11 +35,18 @@ This page belongs to number {number} of {id}
 <br />
 {messages.map((message,index) =>{
     return(
-        <>
+        <> 
+        {/* message[0] - time
+        mesage[1] - From
+        message[2] - actual msg */}
+
+        <div className="w-96">
         <h2 key={index}>{message[0]}</h2>
-        <h4>{message[1]}</h4>
+        <h4 className="font-bold">{message[1]}</h4>
         <p> {message[2]}</p>
-    <br></br>
+    
+        </div>
+        
         </>
     
 )

@@ -6,7 +6,12 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'montserrat': ['Montserrat']
+      
+    }
+    },
   },
   plugins: [],
 }

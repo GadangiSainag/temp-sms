@@ -12,8 +12,8 @@ app.use(cors({
 // For fetching all countries with available numbers (it fetches everything)
 app.get("/api/allNumbers", async (req, res) => {
   try {
-    const response = await axios.get("https://receiveasmsonline.com/page-data/india/page-data.json");
-    res.json(response.data);
+    const numbers  = await axios.get("https://receiveasmsonline.com/page-data/india/page-data.json");
+    res.json(numbers.data);
   } catch (error) {
     res.status(500).json({ error: "An error occurred" });
   }
@@ -22,7 +22,6 @@ app.get("/api/allNumbers", async (req, res) => {
 //For fetching all messages recieved by a particular number
 app.get("/api/messages/:phNumber" , async(req,res) =>{
   const phNumber =req.params.phNumber
-  
   try {
     const messages = await axios.get(`https://gvg3y3xp63.execute-api.eu-west-1.amazonaws.com/dev/getsms/${phNumber}`);
     res.json(messages.data.payload);

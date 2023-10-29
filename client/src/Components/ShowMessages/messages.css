@@ -1,0 +1,38 @@
+
+#msgbox{
+    display: flex;
+    /* text-align: center; */
+    align-items :center;
+    justify-content:space-around;
+    flex-direction: column;
+    
+    margin: 20px auto;
+    width: 54%;
+    min-height: 9rem;
+    border-radius: 20px;
+    background-color: #6b8afd;
+    background-color: #2e333d;
+}
+h4{
+    /* FROM */
+letter-spacing: .1em;
+position: relative;
+    right: 32%;
+    font-size: 3.4em;
+    
+}
+p{
+    /* Actual message */
+    /* display: flex; */
+    
+    width:80%;
+
+}
+h3{
+    /* Time */
+
+    position: relative;
+    left: 38%;
+    bottom :4px;
+    color:rgb(225, 241, 255);
+}

@@ -1,0 +1,20 @@
+.countriesBox{
+    /* width: 200px ; */
+}
+
+
+.countryCard{
+    margin : 0px auto;
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    /* max-width: 150px; */
+    /* background-color: brown; */
+    border-radius: 1rem;
+}
+.active{
+    background-color: #202329;
+}
