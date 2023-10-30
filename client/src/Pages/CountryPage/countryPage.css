@@ -13,13 +13,14 @@ border-radius: 1.5rem;
     /* margin-top: 40px; */
 }
 .countryContainer{
-    flex:1;
-    margin : 7% auto 20px;
-    overflow-y: scroll;
+    /* flex:1; */
+    margin : 7% 0px 20px;
+    overflow:hidden scroll;
+
 }
 .combined{
     background-color: #202329;
-    flex:5;
+    flex:13;
     border-radius: 1.5rem;
     /* margin-top:40px; */
 

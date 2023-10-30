@@ -1,10 +1,12 @@
 .countriesBox{
     /* width: 200px ; */
 }
-
+a{
+    cursor: default;
+}
 
 .countryCard{
-    margin : 0px auto;
+    margin :10px  0px;
     display: flex;
     flex-direction: column;
     /* text-align: center; */
@@ -14,7 +16,36 @@
     /* max-width: 150px; */
     /* background-color: brown; */
     border-radius: 1rem;
+    /* position: relative; */
 }
 .active{
     background-color: #202329;
+}
+.badge{
+    background-color: #6b8afd;
+    width:20px;
+    border-radius: 50%;
+    color: white;
+   position: absolute;
+   right: -10px;
+   top:-10px;
+    padding: 2px 3px;
+    font-size: 10px;
+    
+
+}
+.flag{
+    /* position: absolute; */
+    /* left:15px; */
+    width: 48px;
+    height: 28px;
+    border-radius: 6px;
+}
+.name{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 12px;
+    max-width: 40%;
+
 }

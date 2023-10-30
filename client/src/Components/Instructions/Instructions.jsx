@@ -3,8 +3,7 @@ import "./instructions.css"
 export default function Instructions(){
     return(
         <div className="content ">
-            <h1> HELLO </h1>
-            <br/>
+         
 
             <ol type="1" className="list-decimal" >
                 <li>Select a Country.</li>

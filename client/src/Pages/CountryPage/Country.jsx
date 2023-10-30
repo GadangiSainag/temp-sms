@@ -72,7 +72,7 @@ export default function Country() {
         // setData(JSON.stringify(response.data.result.pageContext.telephones.australia))
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.message, "TRY AGAIN");
       });
   }
   function refreshPage(){
