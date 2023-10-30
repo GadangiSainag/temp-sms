@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ShowMessages from "../../Components/ShowMessages/ShowMessages";
 import "../CountryPage/countryPage.css";
@@ -88,6 +89,13 @@ export default function Country() {
 
   return (
     <div className="font-montserrat fullScreen flex">
+    <div className="absolute logo" onClick={()=> window.location.href = '/home'}>
+    <img src="/Logo.png" className="logoImg" />
+      <p className="brandName font-bold">TempSMS</p>
+
+    </div>
+      
+
       <div className="countryContainer">
         <ShowCountries countries={countries} changeCountry={getNumbers} />
       </div>

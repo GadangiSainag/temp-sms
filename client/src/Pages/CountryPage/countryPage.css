@@ -14,7 +14,8 @@ border-radius: 1.5rem;
 }
 .countryContainer{
     /* flex:1; */
-    margin : 7% 0px 20px;
+    margin : 110px 0px 20px;
+
     overflow:hidden scroll;
 
 }
@@ -46,6 +47,31 @@ border-radius: 1.5rem;
     /* text-align: center; */
     
     
+}
+.logo{
+    min-width:64px;
+    height: 100px;
+    cursor: pointer;
+    position: absolute;
+    /* margin-left: 40px; */
+    top:10px;
+    left: 30px;
+}
+.logoImg{
+    width:64px;
+
+
+    position: absolute;
+    /* margin-left: 40px; */
+    /* top:10px; */
+    /* left: 30px; */
+}
+.brandName{
+    position: relative;
+    /* margin-left: 40px; */
+    top:70px;
+    left: -3px;
+    font-size: 14px;
 }
 
 ::-webkit-scrollbar{

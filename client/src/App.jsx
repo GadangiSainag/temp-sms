@@ -1,6 +1,6 @@
 import { BrowserRouter, Route,Navigate , Routes} from 'react-router-dom'
 import './App.css'
-// import React from 'react'
+import React from 'react'
 import Home from './Pages/Home/Home'
 import Country from './Pages/CountryPage/Country'
 import EachNumber from './Pages/NumberPage/EachNumber'
