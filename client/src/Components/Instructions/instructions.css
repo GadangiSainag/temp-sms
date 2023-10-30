@@ -1,0 +1,10 @@
+.content {
+    margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+li {
+  list-style-position:outside;
+  margin: 20px 0px;
+}
