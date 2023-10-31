@@ -85,9 +85,10 @@ border-radius: 1.5rem;
 
 ::-webkit-scrollbar-thumb{
 	background-color: #CBCBCB;
+    /* background-color: #6B8AFD; */
 	/* outline: 2px solid #FFF; */
 	/* outline-offset: -2px; */
-	border: 0.01px solid #B7B7B7;
+	/* border: 0.01px solid #B7B7B7; */
     border-radius: 2rem;
 }
 

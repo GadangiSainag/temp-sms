@@ -19,7 +19,7 @@ export default function Country() {
   useEffect(() => {
     // console.log(isWindowsPlatform);
     //Runs only on the first render
-    // document.title=`${liveCountry.toUpperCase()}`
+    // 
     getNumbers(liveCountry);
 
     axios
@@ -50,7 +50,7 @@ export default function Country() {
 
   function getNumbers(country) {
     setLiveCountry(country);
-
+ document.title=`${country.toUpperCase()}`
     axios
       .get("http://localhost:5000/api/allNumbers")
       .then((response) => {
@@ -63,6 +63,7 @@ export default function Country() {
       .catch((err) => {
         console.log(err);
       });
+     
   }
   function getMessages(phNO) {
     axios
@@ -73,7 +74,7 @@ export default function Country() {
         // setData(JSON.stringify(response.data.result.pageContext.telephones.australia))
       })
       .catch((err) => {
-        alert(err.message, "TRY AGAIN");
+        console.log(err);
       });
   }
   function refreshPage(){
