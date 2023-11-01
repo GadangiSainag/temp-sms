@@ -1,38 +1,44 @@
-
-#msgbox{
-    display: flex;
-    /* text-align: center; */
-    align-items :center;
-    justify-content:space-around;
-    flex-direction: column;
-    
-    margin: 20px auto;
-    width: 54%;
-    min-height: 9rem;
-    border-radius: 20px;
-    background-color: #6b8afd;
-    background-color: #2e333d;
+.msgbox {
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  margin: 20px auto;
+  width: 620px;
+  min-height: 9rem;
+  border-radius: 20px;
+  /* background-color: #6b8afd; */
+  background-color: #2e333d;
+  position: relative;
 }
-h4{
-    /* FROM */
-letter-spacing: .1em;
-position: relative;
-    right: 32%;
-    font-size: 3.4em;
-    
+.from {
+  /* FROM */
+  letter-spacing: 0.1em;
+  position: absolute;
+  left: 40px;
+  top: 15px;
+  /* font-size: 3.4em; */
 }
-p{
-    /* Actual message */
-    /* display: flex; */
-    
-    width:80%;
-
+.msgContent {
+  /* Actual message */
+  /* display: flex; */
+  padding: 50px 0px;
+  text-wrap: wrap;
+  margin: auto 0px;
+  width: 80%;
+  position: relative;
+  bottom: -10px;
 }
-h3{
-    /* Time */
+.time {
+  /* Time */
 
-    position: relative;
-    left: 38%;
-    bottom :4px;
-    color:rgb(225, 241, 255);
+  position: absolute;
+  /* bottom: 4px; */
+  right: 40px;
+  top: 15px;
+  color: rgb(225, 241, 255, 0.5);
+}
+.skleton {
+  background-color: rgb(46, 51, 61, 0.5);
 }

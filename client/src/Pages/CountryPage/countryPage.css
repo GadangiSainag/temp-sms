@@ -28,7 +28,7 @@ border-radius: 1.5rem;
 }
 .phoneNumbersContainer{
     /* width: 350px; */
-    margin-top: 50px;
+    margin-top: 70px;
     flex:1;
     /* height: 100vh; */
     
@@ -73,7 +73,27 @@ border-radius: 1.5rem;
     left: -3px;
     font-size: 14px;
 }
+.refreshBtn{
+    width: 150px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: #2e333d;
+}
+.topBar{
+    z-index: 10;
+    position: fixed;
+    /* display:block; */
+    top: 11px;
+    left: 140px;
+    background-color: #161617;
+    width: 90%;
+    height: 50px;
+    /* left:10px; */
+    margin: auto;
+    border-radius: 15px;
+    justify-content: space-around;
 
+}
 ::-webkit-scrollbar{
 	width: 4px;
     

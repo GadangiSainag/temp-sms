@@ -5,7 +5,7 @@ import "./numbers.css";
 export default function ShowPhNumbers(props) {
   const [activeNumber, setLiveNumber] = useState("");
   return (
-    <div>
+    <div className="relative">
       {props.allNumbs.map((eachNumber, index) => {
         return (
           <div

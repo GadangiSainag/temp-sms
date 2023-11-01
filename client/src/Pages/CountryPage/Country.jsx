@@ -7,6 +7,7 @@ import "../CountryPage/countryPage.css";
 import ShowPhNumbers from "../../Components/ShowPhNumbers/ShowPhNums";
 import ShowCountries from "../../Components/ShowCountries/ShowContries";
 import Instructions from "../../Components/Instructions/Instructions";
+
 export default function Country() {
   const { id } = useParams();
   const [countries, setCountries] = useState([]);
@@ -15,11 +16,12 @@ export default function Country() {
   const [phNumber, setNumber] = useState();
   const [messages, setMessages] = useState([]);
   const isWindowsPlatform = /win/i.test(navigator.platform);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // console.log(isWindowsPlatform);
     //Runs only on the first render
-    // 
+    //
     getNumbers(liveCountry);
 
     axios
@@ -50,7 +52,7 @@ export default function Country() {
 
   function getNumbers(country) {
     setLiveCountry(country);
- document.title=`${country.toUpperCase()}`
+    document.title = `${country.toUpperCase()}`;
     axios
       .get("http://localhost:5000/api/allNumbers")
       .then((response) => {
@@ -63,9 +65,10 @@ export default function Country() {
       .catch((err) => {
         console.log(err);
       });
-     
   }
   function getMessages(phNO) {
+    setNumber(phNO);
+    setLoading(true);
     axios
       .get(`http://localhost:5000/api/messages/${phNO}`)
       .then((response) => {
@@ -76,10 +79,14 @@ export default function Country() {
       .catch((err) => {
         console.log(err);
       });
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
   }
-  function refreshPage(){
+  function refreshPage() {
     window.location.reload(false);
-}
+  }
   function handleClick(phNo) {
     // getMessages(phNo)
     // setNumber(phNo)
@@ -90,26 +97,45 @@ export default function Country() {
 
   return (
     <div className="font-montserrat fullScreen flex">
-    <div className="absolute logo" onClick={()=> window.location.href = '/home'}>
-    <img src="/Logo.png" className="logoImg" />
-      <p className="brandName font-bold">TempSMS</p>
-
-    </div>
-      
+      <div
+        className="absolute logo"
+        onClick={() => (window.location.href = "/home")}
+      >
+        <img src="/Logo.png" className="logoImg" />
+        <p className="brandName font-bold">TempSMS</p>
+      </div>
 
       <div className="countryContainer">
         <ShowCountries countries={countries} changeCountry={getNumbers} />
       </div>
       <span className="combined flex">
+        <strong className="fixed left-44 top-5 font-extrabold">
+          AVAILABLE NUMBERS{" "}
+        </strong>
+
+        {/* <div className="topar left-1/2 top-9">
+    
+      <div className="">
+            +{phNumber} 
+            <button
+              className="refreshBtn "
+              onClick={() => getMessages(phNumber)}
+            >
+              Refresh Me
+            </button></div>
+          </div> */}
+
         <div className="phoneNumbersContainer">
           {/* all phone numbers */}
           <ShowPhNumbers allNumbs={numbs} getMessages={getMessages} />{" "}
         </div>
-        <div className="msgsContainer">
-        <button onClick={getMessages}>Refresh Me</button>
+        <div className="msgsContainer text-center">
           {/* Shows all messages */}
+
           {messages.length > 0 ? (
-            <ShowMessages messages={messages} />
+            <ShowMessages messages={messages} isLoading={loading} />
+          ) : phNumber ? (
+            <h2>No messages still !! <br/> Try Refreshing</h2>
           ) : (
             <Instructions />
           )}

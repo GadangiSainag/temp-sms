@@ -30,7 +30,7 @@ export default function Home() {
       .catch((err) => {
         console.log(err);
       });
-      console.log(countries)
+    console.log(countries);
   }, []);
 
   return (
