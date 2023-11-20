@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./home.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import ShowCountries from "../../Components/ShowCountries/ShowContries";
+// import ShowCountries from "../../Components/ShowCountries/ShowContries";
+// const url= import.meta.env.VITE_URL;
 
 export default function Home() {
   // const axiosConfig = {
@@ -23,7 +24,9 @@ export default function Home() {
   useEffect(() => {
     //Runs only on the first render
     axios
-      .get("http://localhost:5000/api/allNumbers")
+      .get(
+        `http://${import.meta.env.VITE_PROXY_SERVER_URL}:8000/api/allNumbers`
+      )
       .then((response) => {
         setCountries(Object.keys(response.data.result.pageContext.telephones));
       })

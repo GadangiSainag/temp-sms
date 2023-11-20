@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useRef } from "react";
+import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../ShowCountries/countries.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import setFlag from "../Flags";
-
+const serverURL = import.meta.env.VITE_PROXY_SERVER_URL;
 export default function ShowCountries(props) {
   const [countries, setCountries] = useState([]);
   const [data, setData] = useState({});
@@ -15,7 +15,7 @@ export default function ShowCountries(props) {
   useEffect(() => {
     //Runs only on the first render
     axios
-      .get("http://localhost:5000/api/allNumbers")
+      .get(`http://${serverURL}:8000/api/allNumbers`)
       .then((response) => {
         setData(response.data.result.pageContext.telephones);
         // (Object.keys(response.data.result.pageContext.telephones))
@@ -24,6 +24,7 @@ export default function ShowCountries(props) {
       .catch((err) => {
         console.log(err);
       });
+    // setCountries(props.countries);
     setTimeout(() => {
       if (liveCountry) {
         document

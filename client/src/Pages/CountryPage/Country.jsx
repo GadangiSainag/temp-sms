@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ShowMessages from "../../Components/ShowMessages/ShowMessages";
 import "../CountryPage/countryPage.css";
@@ -15,9 +16,9 @@ export default function Country() {
   const [liveCountry, setLiveCountry] = useState(id);
   const [phNumber, setNumber] = useState();
   const [messages, setMessages] = useState([]);
-  const isWindowsPlatform = /win/i.test(navigator.platform);
+  // const isWindowsPlatform = /win/i.test(navigator.platform);
   const [loading, setLoading] = useState(true);
-
+  const serverURL = import.meta.env.VITE_PROXY_SERVER_URL;
   useEffect(() => {
     // console.log(isWindowsPlatform);
     //Runs only on the first render
@@ -25,7 +26,7 @@ export default function Country() {
     getNumbers(liveCountry);
 
     axios
-      .get("http://localhost:5000/api/allNumbers")
+      .get(`http://${serverURL}:8000/api/allNumbers`)
       .then((response) => {
         const respData = response.data.result.pageContext.telephones;
         setCountries(Object.keys(respData)); //country list array
@@ -54,7 +55,7 @@ export default function Country() {
     setLiveCountry(country);
     document.title = `${country.toUpperCase()}`;
     axios
-      .get("http://localhost:5000/api/allNumbers")
+      .get(`http://${serverURL}:8000/api/allNumbers`)
       .then((response) => {
         const countryNums =
           response.data.result.pageContext.telephones[country];
@@ -70,7 +71,7 @@ export default function Country() {
     setNumber(phNO);
     setLoading(true);
     axios
-      .get(`http://localhost:5000/api/messages/${phNO}`)
+      .get(`http://${serverURL}:8000/api/messages/${phNO}`)
       .then((response) => {
         // console.log(Object.values(response.data));
         setMessages(Object.values(response.data));
@@ -84,16 +85,6 @@ export default function Country() {
       setLoading(false);
     }, 1500);
   }
-  function refreshPage() {
-    window.location.reload(false);
-  }
-  function handleClick(phNo) {
-    // getMessages(phNo)
-    // setNumber(phNo)
-    // window.location.href = `/en/${id}/number/${phNo}`;
-    // console.log("hello", phNo)
-  }
-  function changeCountry(country) {}
 
   return (
     <div className="font-montserrat fullScreen flex">
@@ -135,7 +126,9 @@ export default function Country() {
           {messages.length > 0 ? (
             <ShowMessages messages={messages} isLoading={loading} />
           ) : phNumber ? (
-            <h2>No messages still !! <br/> Try Refreshing</h2>
+            <h2>
+              No messages still !! <br /> Try Refreshing
+            </h2>
           ) : (
             <Instructions />
           )}
